@@ -1,0 +1,22 @@
+name: Run API Check
+
+on:
+  workflow_dispatch: # Agar bisa dijalankan manual klik tombol
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout kode
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Library
+        run: pip install requests
+
+      - name: Jalankan Skrip
+        run: python main.py
